@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Configuración de la pagina -->
+  <!-- ICONO PAGINA-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://raw.githubusercontent.com/tlkh/SmartBin/master/img/trashy.gif">
+  <!-- NOMBRE PAGINA -->
+  <title>Botes interactivos Cali</title>
+  <meta name="description" content="Colombia.">
+  <meta name="keywords" content="Botes inteligentes">
+  <!-- CSS ESTILO -->
+  <link rel="stylesheet" href="estilo_paginas.css">
+  <!-- Importación JS para la barra de navegación -->
+  <script src="js/navbar-ontop.js"></script>
+  <script src="js/smooth-scroll.js" style=""></script>
+  <!-- Logos usados en la pagina -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <!-- Barra de navegación con título de la pagina-->
+  <nav class="navbar navbar-light bg-dark">
+    <div class="container">
+      <a class="navbar-brand text-primary">
+        <i class="fa d-inline fa-lg fa-home"></i>
+        <b> REGISTRO DE USUARIOS</b>
+      </a>
+    </div>
+    <a href="index.html" class="btn btn-primary btn-outline-light text-white bg-dark">Ir al inicio</a>
+  </nav>
+  <div class="" style="">
+    <div class="container">
+      <!-- Mensaje de bienvenida-->
+      <div class="row">
+        <div class="col-md-8 ">
+          <h1>¡BIENVENIDO A BORDO!</h1>
+          <p>Queremos darte un calido abrazo por ser parte de nuestra familia.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 " style="">
+          <h3>BIIoT</h3>
+          <!-- LOGO DE LA EMPRESA-->
+          <div class="form-group">
+            <img class="img-fluid d-block" src="Logo_empresa.png" width="350">
+          </div>
+        </div>
+        <!-- Formulario de registro de datos del usuario -->
+        <div class="col-md-7 " style="">
+          <h3 class="mb-3">Datos Personales</h3>
+          <form action="guardar_info_usuario.php" method="post">
+            <div class="form-group py-1"> <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" name="nombre" required=""> </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 py-1"> <input type="text" class="form-control" id="form36" placeholder="Tipo de Documento" list="tipoDoc" required=""> </div>
+              <div class="form-group col-md-6 py-1"> <input type="text" class="form-control" id="identificacion" placeholder="Número de documento" name="identificacion" required=""> </div>
+            </div>
+            <div class="form-group py-1"> <input type="text" class="form-control" id="form42" placeholder="Código de Compra Usuario BIIoT" name="codigo" required=""> </div>
+            <div class="form-group py-1"> <input type="email" class="form-control" id="form39" placeholder="Email" name="correo" required=""> </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 py-1"> <input type="text" class="form-control" id="form37" placeholder="Telefono (opcional)" style="" name="numero_telefono" required=""> </div>
+              <div class="form-group col-md-6 py-1"> <input type="text" class="form-control" id="form41" placeholder="Ciudad" style="" name="ciudad" required=""> </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 py-1"> <input type="text" class="form-control" id="form36" placeholder="Nick Usuario" name="nick" required=""> </div>
+              <div class="form-group col-md-6 py-1"> <input type="password" class="form-control" id="form37" placeholder="Contraseña" autocomplete="off" name="contrasena" required=""> </div>
+            </div>
+            <!-- Politicas de privacidad de datos-->
+            <div class="text-center"><button type="submit" class="btn btn-primary bg-dark btn-block">Registrarse</button></div>
+            <p class="text-center"> Estoy de acuerdo con la <a href="#">POLÍTICA DE RECOLECCIÓN DE DATOS DE BIIoT</a> </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+<datalist id="tipoDoc">
+
+  <option value="Tarjeta de Identidad">
+
+  <option value="Cédula de Identidad">
+
+  <option value="Cédula extranjero">
+
+  <option value="Pasaporte">
+
+  <option value="Otro">
+
+</datalist>
+
+</html>

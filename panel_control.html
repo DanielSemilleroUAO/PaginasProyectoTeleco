@@ -1,0 +1,191 @@
+<?php
+session_start();
+//echo "Bienvenido! " . $_SESSION['username'];
+//echo $_SESSION['id_usuario'];
+//echo $_SESSION['cant_nodos'];
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+   echo "Esta pagina es solo para usuarios registrados.<br>";
+   echo "<br><a href='index.html'>Login</a>";
+   echo "<br><br><a href='index.html'>Registrarme</a>";
+
+exit;
+}
+
+$now = time();
+
+if($now > $_SESSION['expire']) {
+session_destroy();
+
+echo "Su sesion a terminado,
+<a href='index.html'>Necesita Hacer Login</a>";
+exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Configuración de la pagina -->
+  <!-- ICONO PAGINA-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://raw.githubusercontent.com/tlkh/SmartBin/master/img/trashy.gif">
+  <!-- NOMBRE PAGINA -->
+  <title>Botes interactivos Cali</title>
+  <meta name="description" content="Colombia.">
+  <meta name="keywords" content="Botes inteligentes">
+  <!-- CSS ESTILO -->
+  <link rel="stylesheet" href="estilo_paginas.css">
+  <!-- Importación JS para la barra de navegación -->
+  <script src="js/navbar-ontop.js"></script>
+  <script src="js/smooth-scroll.js" style=""></script>
+  <!-- Importación google chart mapa -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages':['map'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      //Latitud: 3.353806 | Longitud: -76.521788
+      'mapsApiKey': 'AIzaSyBt6YOJXifjgIlfX4SPDT8Ddq_j57Uemn4'
+    });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Lat', 'Long', 'Name'],
+        [3.353806, -76.521788, 'Work'],
+        [3.353776, -76.522518, 'University'],
+        [3.353531, -76.520823, 'Airport'],
+        [3.353275, -76.521074, 'Shopping']
+      ]);
+
+      var options = {
+        icons: {
+          default: {
+            normal: 'Logo_mapa.gif',
+            selected: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
+          }
+        },
+      };
+    var map = new google.visualization.Map(document.getElementById('map_markers_div'));
+    map.draw(data, options);
+    }
+  </script>
+
+</head>
+<body class="text-center">
+  <!-- Barra de navegación  -->
+  <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation" style=""> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
+        <!-- Items de la barra de navegación -->
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+            <a class="btn btn-dark btn-block mx-2 text-white btn-outline-light" href="AdminBotesUsuario.html">Administrar botes</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="btn btn-dark btn-block mx-2 text-white btn-outline-light" href="#">Actualizar datos</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="btn btn-dark btn-block mx-2 text-white btn-outline-light" href="cerrar_sesion.php">Cerrar sesion</a>
+          </li>
+          <li class="nav-item mx-2">
+          </li>
+          <li class="nav-item mx-2">
+            <img class="img-fluid d-block" src="Logo.gif" width="50" draggable="true">
+          </li>
+          <li class="nav-item mx-2">
+            <img class="img-fluid d-block" src="Logo_empresa.png" width="40" height="38">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Portada con imagen de fondo  -->
+  <div class="d-flex align-items-center p-2 cover" style="background-image: url(&quot;CALI_1.jpg&quot;); background-position: left top; background-size: 100%; background-repeat: repeat;">
+    <!-- Container con imagen de fondo de color negro con difuminado -->
+    <div class="container" style="	background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+      <div class="row" style="">
+
+        <div class="col-lg-12 text-white" style="">
+        <br>
+        <br>
+          <!-- Saludo a usario, fecha y hora de visita-->
+          <h1 class="d-none d-md-block text-center text-capitalize text-light" style=""><b>hola user, Fecha:   Hora:</b></h1>
+          
+          <!-- Mostrar mapa y ubicación de todos los botes que estan asociados al usuario -->
+          <div class="row">
+             <div class="col-md-6 text-center" style="">
+              <!--<iframe width="100%" height="400" src="https://maps.google.com/maps?q=New%20York&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe>-->
+              <div id="map_markers_div" style="width: 480px; height: 450px"></div>
+            </div> 
+
+            <!-- Mostrar datos promedios de la cantidad de todos los residusos que hay en los botes -->
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+                <div class="col-md-6">
+                  <h1 class="">Heading 1</h1>
+                </div>
+              </div>
+              <!-- -->
+              <div class="row">
+                <!-- Mostrar Valor promedio de todos lo residuos recolectados -->
+                <div class="col-md-12">
+                  <h1 class="display-4">Display 4</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </body>
+</html>

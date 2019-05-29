@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Configuración de la pagina -->
+  <!-- ICONO PAGINA-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://raw.githubusercontent.com/tlkh/SmartBin/master/img/trashy.gif">
+  <!-- NOMBRE PAGINA -->
+  <title>Botes interactivos Cali</title>
+  <meta name="description" content="Colombia.">
+  <meta name="keywords" content="Botes inteligentes">
+  <!-- CSS ESTILO -->
+  <link rel="stylesheet" href="estilo_paginas.css">
+  <!-- Importación JS para la barra de navegación -->
+  <script src="js/navbar-ontop.js"></script>
+  <script src="js/smooth-scroll.js" style=""></script>
+    <!-- Logos usados en la pagina -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+</head>
+<body>
+  <!-- Barra de navegación con título de la pagina-->
+  <nav class="navbar navbar-light bg-dark">
+    <div class="container"> 
+      <a class="navbar-brand text-primary" href="#">
+      <i class="fa d-inline fa-lg fa-home"></i>
+      <b>INICIO DE SESIÓN<br></b>
+      </a> 
+    </div>
+      <a href="index.html" class="btn btn-primary mt-4 btn-outline-light text-white bg-dark">Ir al inicio</a>
+  </nav>
+  <!-- Bienvenida al usario e información de la empresa-->
+  <div class="py-1" style="">
+    <div class="container" style="">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>¡BIENVENIDO A BORDO!</h1>
+          <p>Queremos darte un calido abrazo por ser parte de nuestra familia.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 py-1">
+          <h3>BIIoT</h3>
+          <p>Estamos para servirte</p>
+          <p class="lead mt-3"> <b>Soporte</b></p>
+          <p> <a href="#">+1 234 567 89</a> </p>
+          <p> <a href="#">support@hello.com</a> </p>
+          <p class="lead mt-3"> <b>Ventas</b></p>
+          <p> <a href="#">+1 234 567 89</a> </p>
+          <p> <a href="#">sales@hello.com</a> </p>
+          <p class="lead mt-3"> <b>Información</b></p>
+          <p> <a href="#">info@hello.com</a> </p>
+        </div>
+        <!-- Ingreso de datos para el inicio de sesion: codigo usurio de la empresa, usuario y contraseña -->
+        <div class="col-md-7 py-1" style="">
+          <h3 class="mb-3">Acceso a tu cuenta</h3>
+          <form action="verificar_login.php" method="post">
+            <div class="form-group"> <input name="codigo_usuario" type="text" class="form-control" id="form42" placeholder="Código de Usuario BIIoT"> </div>
+            <div class="form-group py-1"> <input name="nombre_usuario" type="text" class="form-control" id="form39" placeholder="Email o Nickname de usuario"> </div>
+            <div class="form-group py-1"> <input name="contrasena"type="password" class="form-control" id="form37" placeholder="Contraseña" autocomplete="off" required=""> </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary bg-dark btn-block">Acceder</button> </div>
+            <p class="text-center"> <a href="#">Olvide mi contraseña</a> </p> <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

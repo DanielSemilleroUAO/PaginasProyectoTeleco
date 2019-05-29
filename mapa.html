@@ -1,0 +1,60 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['map'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'AIzaSyBt6YOJXifjgIlfX4SPDT8Ddq_j57Uemn4'
+    });
+    google.charts.setOnLoadCallback(drawMap);
+
+    function drawMap () {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Lat');
+      data.addColumn('number', 'Long');
+      data.addColumn('string', 'Location');
+      data.addColumn('string', 'Marker');
+
+      data.addRows([
+        [3.353806, -76.521788,'<a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+'Informacion</a>' ,  'blue' ],
+        [3.353776, -76.522518, 'Cali','green']
+
+        ]);
+
+      var url = 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
+
+      var options = {
+        //showTooltip: true,
+        showInfoWindow: true,
+        useMapTypeControl: true,
+        icons: {
+          blue: {
+            normal:   'bote_lleno.gif',
+            selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+          },
+          green: {
+            normal:   'Logo_mapa.gif',
+            selected: url + 'Map-Marker-Push-Pin-1-Right-Chartreuse-icon.png'
+          },
+          pink: {
+            normal:   'bote_lleno.gif',
+            selected: url + 'Map-Marker-Ball-Right-Pink-icon.png'
+          },
+          default: {
+            normal: 'bote_lleno.gif',
+            selected: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
+          }
+        }
+      };
+      var map = new google.visualization.Map(document.getElementById('map_div'));
+
+      map.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="map_div" style="height: 500px; width: 900px"></div>
+</body>
+</html>
